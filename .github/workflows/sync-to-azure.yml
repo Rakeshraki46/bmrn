@@ -16,9 +16,9 @@ jobs:
     - name: Configure Git
       run: |
         git config --global user.email "rakesh.joruka9999@gmail.com"
-        git config --global user.name "rakeshraki46"
+        git config --global user.name "Rakeshraki46"
 
     - name: Push to Azure DevOps
       run: |
-        git remote add azure https://:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/Rakeshjoruka/Bmrn/_git/bmrn_From_Devops
+        git remote add azure https://:${{ secrets.AZURE_DEVOPS_PAT }}dev.azure.com/Rakeshjoruka/Bmrn/_git/bmrnimportedfromgit
         git push --force azure main
