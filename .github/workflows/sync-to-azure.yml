@@ -1,0 +1,24 @@
+name: Sync to Azure DevOps
+
+on:
+  push:
+    branches:
+      - main  # Runs when you push to GitHub main branch
+
+jobs:
+  sync:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Configure Git
+      run: |
+        git config --global user.email "rakesh.joruka9999@gmail.com"
+        git config --global user.name "rakeshraki46"
+
+    - name: Push to Azure DevOps
+      run: |
+        git remote add azure https://:${{ secrets.AZURE_DEVOPS_PAT }}@dev.azure.com/Rakeshjoruka/Bmrn/_git/bmrn_From_Devops
+        git push --force azure main
